@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TwitterClone</title>
+    
+  </head>
+  <body>
+    <div class="container">
+      
+      <header class="header">
+        <div class="global_menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/mutters/new">新規投稿</a></li>
+            <li><a href="/mutters">つぶやき一覧</a></li>
+          </ul>
+        </div>
+      </header>
+      
+      <div class="content">
+        
+        <div class="notice">
+          <p></p>
+        </div>
+        
+        <div class="page_title">
+          <h2>以下の内容で投稿しますか？</h2>
+        </div>
+        
+        <div class="main_content">
+          <%= form_with(model: @mutter, url: mutters_path, local: true) do |form| %>
+            <%= form.hidden_field :content %>
+
+            <div class="confirm_content">
+              <label>投稿内容</label>
+              <div class="entry_content">
+                <%= @mutter.content %>
+              </div>
+              <div class="entry_btn btn">
+                <%= form.submit  "投稿する" %>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="return_content">
+            <%= form_with(model: @mutter, url: new_mutter_path, local: true, method: 'get') do |form| %>
+              <%= form.hidden_field :content %>
+              <div class="return_btn btn">
+                <%= form.submit "もどる", name: 'back' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        
+      </div> <!--End of container-->
+      
+      <footer class="footer">
+        <p>Hideki Fujimoto test application</p>
+      </footer>
+    </div>
+  </body>
+  
+</html>

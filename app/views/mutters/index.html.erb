@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TwitterClone</title>
+    
+  </head>
+  <body>
+    <div class="container">
+      
+      <header class="header">
+        <div class="global_menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/mutters/new">新規投稿</a></li>
+            <li><a href="/mutters">つぶやき一覧</a></li>
+          </ul>
+        </div>
+      </header>
+      
+      <div class="content">
+        
+        <div class="notice">
+          <p><%= notice %></p>
+        </div>
+        
+        <div class="page_title">
+          <h2>つぶやき一覧</h2>
+        </div>
+          
+        <div class="main_content">
+          <table>
+            <% @mutters.each do |mutter| %>
+              <tr class="tweet_content">
+                <td><%= mutter.content %></td>
+              </tr>
+              <tr class="content_buttom">
+                <td><%= link_to "編集する", edit_mutter_path(mutter.id) ,class: "btn table_buttom edit_buttom" %>
+                <%= link_to '削除する', mutter_path(mutter.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } ,class: "btn table_buttom delete_buttom" %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+        
+        <div class="page_btn">
+          <%= link_to '新しくつぶやきを投稿する', new_mutter_path ,class: "btn" %>
+        </div>
+        
+      </div> <!--End of container-->
+      
+      <footer class="footer">
+        <p>Hideki Fujimoto test application</p>
+      </footer>
+    </div>
+  </body>
+  
+</html>
+
+
+
+
+
+
+
+

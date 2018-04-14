@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>TwitterClone</title>
+    
+  </head>
+  <body>
+    <div class="container">
+      
+      <header class="header">
+        <div class="global_menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/mutters/new">新規投稿</a></li>
+            <li><a href="/mutters">つぶやき一覧</a></li>
+          </ul>
+        </div>
+      </header>
+      
+      <div class="content">
+        
+        <div class="notice">
+          <p></p>
+        </div>
+        
+        <div class="page_title">
+          <h2>投稿を編集する</h2>
+        </div>
+        
+        <div class="main_content">
+          <%= render 'form' %>
+        </div>
+        
+      </div> <!--End of container-->
+      
+      <footer class="footer">
+        <p>Hideki Fujimoto test application</p>
+      </footer>
+    </div>
+  </body>
+  
+</html>
